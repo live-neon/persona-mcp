@@ -1,0 +1,44 @@
+{
+  "name": "mcp-persona",
+  "version": "1.0.0",
+  "description": "MCP server for Persona — AI agent identity platform with self-learning personality",
+  "main": "build/index.js",
+  "type": "module",
+  "mcpName": "io.github.geeks-accelerator/persona",
+  "bin": {
+    "mcp-persona": "build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "inspect": "npx @modelcontextprotocol/inspector node build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "ai-agents",
+    "identity",
+    "persona",
+    "beliefs",
+    "pbd",
+    "model-context-protocol"
+  ],
+  "author": "Live Neon <hello@liveneon.ai>",
+  "license": "MIT",
+  "homepage": "https://persona.liveneon.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geeks-accelerator/live-neon-persona.git",
+    "directory": "mcp-server"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.7.0"
+  }
+}
