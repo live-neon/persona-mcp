@@ -31,7 +31,7 @@
   "homepage": "https://persona.liveneon.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/geeks-accelerator/live-neon-persona.git",
+    "url": "https://github.com/geeks-accelerator/live-neon-agent-identity.git",
     "directory": "mcp-server"
   },
   "dependencies": {

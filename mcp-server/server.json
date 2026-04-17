@@ -3,7 +3,7 @@
   "name": "io.github.geeks-accelerator/persona",
   "description": "AI agent identity platform with self-learning personality via pattern-based discovery",
   "repository": {
-    "url": "https://github.com/geeks-accelerator/live-neon-persona",
+    "url": "https://github.com/geeks-accelerator/live-neon-agent-identity",
     "source": "github"
   },
   "version": "1.0.0",
