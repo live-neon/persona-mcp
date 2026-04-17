@@ -7,20 +7,109 @@ MCP server, skills, and tools for managing structured, evolving AI agent identit
 
 **Platform:** [persona.liveneon.ai](https://persona.liveneon.ai)
 **API Docs:** [persona.liveneon.ai/docs/api](https://persona.liveneon.ai/docs/api)
+**Compare:** [persona.liveneon.ai/compare](https://persona.liveneon.ai/compare)
+
+![Dashboard](assets/screenshots/dashboard-full.jpeg)
 
 ---
 
 ## Quick Start
 
-### MCP Server (Recommended)
-
-The fastest way to use Live Neon from Claude Code, Cursor, or any MCP-compatible client:
+### Option 1: MCP Server (Claude Code, Cursor, Windsurf)
 
 ```bash
-# Claude Code
 claude mcp add persona -- npx -y mcp-persona
+```
 
-# Or add to your MCP config
+44 tools, 5 resources, 3 prompts. Zero-config — use the `register` tool to get an API key.
+
+### Option 2: REST API
+
+```bash
+# Register (no signup, no fields required)
+curl -X POST https://persona.liveneon.ai/api/v1/register
+
+# Create an agent
+curl -X POST https://persona.liveneon.ai/api/v1/agents \
+  -H "Authorization: Bearer ln_your_key" \
+  -d '{"name": "My Agent"}'
+
+# Import your CLAUDE.md
+curl -X POST https://persona.liveneon.ai/api/v1/agents/AGENT_ID/import-claude-md \
+  -H "Authorization: Bearer ln_your_key" \
+  -d '{"content": "# My rules\n- Always write tests first\n- Keep it simple"}'
+```
+
+See [examples/](examples/) for runnable Python, Node.js, and curl examples.
+
+---
+
+## What's Here
+
+```
+mcp-server/     MCP server source (npm: mcp-persona)
+skills/         7 platform-specific skills
+examples/       Runnable integration examples (Python, Node.js, curl)
+guides/         Technical guides (identity, CLAUDE.md bridge, PBD discovery)
+assets/         Screenshots and images
+llms.txt        AI agent discovery file
+```
+
+---
+
+## Platform Screenshots
+
+<table>
+<tr>
+<td><img src="assets/screenshots/agent-detail.jpeg" width="400" alt="Agent Detail" /><br/><em>Agent detail with soul summary, radar charts, and diversity bars</em></td>
+<td><img src="assets/screenshots/dashboard-charts.jpeg" width="400" alt="Dashboard Charts" /><br/><em>Org dashboard with content timeline and identity growth</em></td>
+</tr>
+<tr>
+<td><img src="assets/screenshots/soul-editor.jpeg" width="400" alt="Soul Editor" /><br/><em>Editing beliefs across 5 categories with star and hide</em></td>
+<td><img src="assets/screenshots/discovery.jpeg" width="400" alt="Discovery" /><br/><em>PBD discovery — observations clustered into signals</em></td>
+</tr>
+<tr>
+<td><img src="assets/screenshots/groups.jpeg" width="400" alt="Groups" /><br/><em>Agent groups with team identity and managers</em></td>
+<td><img src="assets/screenshots/jobs.jpeg" width="400" alt="Jobs" /><br/><em>Background jobs with status, sparkline, and type breakdown</em></td>
+</tr>
+</table>
+
+---
+
+## Core Concepts
+
+**Beliefs** — structured identity across 5 categories:
+| Category | Question |
+|----------|----------|
+| Axiom | What do I fundamentally believe? (WHY) |
+| Principle | How do I approach work? (HOW) |
+| Voice | How do I communicate? (STYLE) |
+| Preference | What draws my attention? (WHAT) |
+| Boundary | What will I NOT do? (WON'T) |
+
+**Responsibilities** — agent accountabilities across 5 categories: ownership, execution, collaboration, deliverables, monitoring.
+
+**PBD (Pattern-Based Discovery)** — 3-stage pipeline that discovers beliefs from behavior:
+```
+Content Sources → Extract Observations → Cluster into Signals → Promote to Beliefs
+```
+Ingests from GitHub, X/Twitter, websites, RSS, LinkedIn, and conversations.
+
+**Hierarchical Identity** — organization values cascade to groups and agents. One unified system prompt per agent.
+
+**CLAUDE.md Bridge** — import static files into structured beliefs, evolve with PBD, export back. [Learn more](guides/claude-md-bridge.md).
+
+---
+
+## MCP Server
+
+The [`mcp-persona`](https://www.npmjs.com/package/mcp-persona) package provides:
+
+- **44 tools** — agents, beliefs, responsibilities, content, PBD, bootstrap, evolution, conversations
+- **5 resources** — agent identity, soul, files, org summary, PBD stats
+- **3 prompts** — agent setup, identity review, PBD analysis
+
+```json
 {
   "mcpServers": {
     "persona": {
@@ -32,74 +121,55 @@ claude mcp add persona -- npx -y mcp-persona
 }
 ```
 
-44 tools, 5 resources, 3 prompts. Zero-config registration — use the `register` tool to get an API key automatically.
-
-### REST API
-
-```bash
-# Register (zero fields required)
-curl -X POST https://persona.liveneon.ai/api/v1/register
-
-# Create an agent
-curl -X POST https://persona.liveneon.ai/api/v1/agents \
-  -H "Authorization: Bearer ln_your_key" \
-  -H "Content-Type: application/json" \
-  -d '{"name": "My Agent"}'
-
-# Add a belief
-curl -X POST https://persona.liveneon.ai/api/v1/beliefs \
-  -H "Authorization: Bearer ln_your_key" \
-  -H "Content-Type: application/json" \
-  -d '{"agentId": "...", "category": "principle", "statement": "Write the minimum code that solves the exact request"}'
-```
+Source: [`mcp-server/`](mcp-server/)
 
 ---
 
-## What's in This Repo
+## Skills
 
-### `mcp-server/`
-
-Source code for the [`mcp-persona`](https://www.npmjs.com/package/mcp-persona) npm package — an MCP server wrapping the full Live Neon REST API.
-
-- **44 tools** — agents, beliefs, responsibilities, content sources, PBD discovery, bootstrap, evolution
-- **5 resources** — agent identity, soul, files, organization summary, PBD stats
-- **3 prompts** — agent setup, identity review, PBD analysis
-
-### `skills/`
-
-Platform-specific skills for AI agents using Live Neon. These require a Live Neon API key.
+7 platform-specific skills for managing agent identity via the API:
 
 | Skill | Description |
 |-------|-------------|
-| `live-neon-persona` | Full platform skill — fetch identity, sync content, run discovery, review beliefs, build prompts |
-| `agent-soul-manager` | Manage an agent's soul — add, star, hide, and organize beliefs across 5 categories |
-| `agent-belief-discoverer` | Run PBD discovery pipeline to extract beliefs from content sources |
-| `agent-prompt-builder` | Generate and export system prompts and CLAUDE.md files |
-| `agent-identity-evolution` | Track identity changes over time with evolution reports and genome snapshots |
-| `agent-team-governance` | Manage hierarchical identity — org values cascade to groups and agents |
-| `ai-identity-platform` | Overview skill — understand the full platform capabilities |
+| `live-neon-persona` | Complete platform skill — identity, content, discovery, prompts |
+| `agent-soul-manager` | Manage beliefs across 5 categories |
+| `agent-belief-discoverer` | Run behavioral discovery pipeline |
+| `agent-prompt-builder` | Generate system prompts and CLAUDE.md |
+| `agent-identity-evolution` | Evolution reports and genome snapshots |
+| `agent-team-governance` | Hierarchical identity management |
+| `ai-identity-platform` | Platform capabilities overview |
 
-### `llms.txt`
-
-Machine-readable documentation for AI assistants. Describes the full API, endpoints, and capabilities.
+**Looking for portable skills?** See [live-neon/skills](https://github.com/live-neon/skills) for NEON-SOUL (principle extraction), Agentic (failure-anchored memory), and Creative (synthesis) skills that work with any LLM.
 
 ---
 
-## Core Concepts
+## Examples
 
-- **Beliefs** — structured identity across 5 categories: axioms (WHY), principles (HOW), voice (STYLE), preferences (WHAT), boundaries (WON'T)
-- **Responsibilities** — agent accountabilities across 5 categories: ownership, execution, collaboration, deliverables, monitoring
-- **PBD (Pattern-Based Discovery)** — 3-stage pipeline that discovers beliefs from agent behavior: extract observations → cluster into signals → promote to beliefs
-- **Hierarchical Identity** — organization values cascade to every agent, team norms shape groups, individual agents inherit and override
-- **CLAUDE.md Bridge** — import static CLAUDE.md files into structured beliefs, let PBD discover more, export an evolved version back
+| Example | Language | What it does |
+|---------|----------|-------------|
+| [quick-start](examples/quick-start/) | curl | Register → create agent → add beliefs → get prompt in 60 seconds |
+| [python-client](examples/python-client/) | Python | Full API walkthrough with requests |
+| [node-client](examples/node-client/) | Node.js | Bulk beliefs, prompt generation (native fetch) |
+| [curl](examples/curl/) | curl | Copy-paste commands for every operation |
+
+---
+
+## Guides
+
+| Guide | What you'll learn |
+|-------|------------------|
+| [Define Agent Identity](guides/define-agent-identity.md) | The 10-category model, starting from scratch or from a CLAUDE.md |
+| [CLAUDE.md Bridge](guides/claude-md-bridge.md) | Import, evolve, export — the full loop |
+| [PBD Discovery](guides/pbd-discovery.md) | Connect content sources and discover beliefs from behavior |
 
 ---
 
 ## Related
 
-- **[Live Neon Skills](https://github.com/live-neon/skills)** — portable instruction-based skills (NEON-SOUL principle extraction, Agentic failure-anchored memory, Creative synthesis) that work with any LLM without an API key
-- **[Platform](https://persona.liveneon.ai)** — hosted web dashboard with identity analytics, admin panel, and agent management
+- **[Live Neon Skills](https://github.com/live-neon/skills)** — portable SKILL.md files for any LLM (no API key needed)
+- **[Platform](https://persona.liveneon.ai)** — web dashboard with analytics, admin panel, agent management
 - **[API Reference](https://persona.liveneon.ai/docs/api)** — full REST API documentation
+- **[Analyze](https://persona.liveneon.ai/analyze)** — free identity file analyzer (no signup)
 - **[Compare](https://persona.liveneon.ai/compare)** — side-by-side comparisons with 20+ alternatives
 
 ---
