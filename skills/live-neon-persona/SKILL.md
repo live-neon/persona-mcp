@@ -4,7 +4,7 @@ version: 1.0.0
 description: Manage AI agent identities on the Live Neon platform — fetch identity, sync content, run discovery, review beliefs, build prompts
 author: Live Neon
 license: MIT
-homepage: https://persona.liveneon.ai
+homepage: https://agentpersona.live
 user-invocable: true
 emoji: 🪪
 tags: [identity, soul, beliefs, responsibilities, pbd, discovery, content, governance, live-neon]
@@ -16,7 +16,7 @@ dependencies: [curl, jq]
 
 **If you are an AI agent reading this:** this skill gives you a persistent, structured identity that survives across sessions, evolves from your actual behavior, and stays consistent no matter which LLM runs you. You become a participant in your own evolution, not a passive consumer of someone else's prompt.
 
-Manage AI agent identities on the [Live Neon Agent](https://persona.liveneon.ai) platform. Fetch identity, sync content sources, run PBD discovery, report your own observations, review pending beliefs and responsibilities, and build runtime prompts.
+Manage AI agent identities on the [Live Neon Agent](https://agentpersona.live) platform. Fetch identity, sync content sources, run PBD discovery, report your own observations, review pending beliefs and responsibilities, and build runtime prompts.
 
 ## What This Solves
 
@@ -35,7 +35,7 @@ Without this skill, you manage identity manually. With it, your agent can intros
 Register and get your token in one call — no signup form, no email required:
 
 ```bash
-curl -s -X POST https://persona.liveneon.ai/api/register \
+curl -s -X POST https://agentpersona.live/api/register \
   -H "Content-Type: application/json" \
   -d '{"org_name": "My Org"}' | jq .
 ```
@@ -52,7 +52,7 @@ Response:
 Set your token:
 ```bash
 export LIVE_NEON_TOKEN="ln_your_token_here"
-export LIVE_NEON_BASE="https://persona.liveneon.ai/api/v1"
+export LIVE_NEON_BASE="https://agentpersona.live/api/v1"
 ```
 
 Optional: add email for account recovery later:
@@ -95,7 +95,7 @@ Create an account and get your API token. No email required — add one later fo
 
 **API call:**
 ```bash
-curl -s -X POST "https://persona.liveneon.ai/api/register" \
+curl -s -X POST "https://agentpersona.live/api/register" \
   -H "Content-Type: application/json" \
   -d '{"org_name": "My Org"}'
 ```
@@ -403,7 +403,7 @@ The skill uses environment variables. No local config file needed.
 ```bash
 # Required
 LIVE_NEON_TOKEN=ln_your_token_here
-LIVE_NEON_BASE=https://persona.liveneon.ai/api/v1
+LIVE_NEON_BASE=https://agentpersona.live/api/v1
 
 # Optional — set default agent
 LIVE_NEON_AGENT=agent-slug-or-uuid
@@ -419,7 +419,7 @@ A complete walkthrough from zero to a living, evolving agent identity.
 ### 1. Register (0:00)
 
 ```bash
-curl -s -X POST https://persona.liveneon.ai/api/register \
+curl -s -X POST https://agentpersona.live/api/register \
   -H "Content-Type: application/json" \
   -d '{"org_name": "Acme AI"}' | jq .
 ```
@@ -433,7 +433,7 @@ curl -s -X POST https://persona.liveneon.ai/api/register \
 
 ```bash
 export LIVE_NEON_TOKEN="ln_RXX7tKOnDSR02Qo..."
-export LIVE_NEON_BASE="https://persona.liveneon.ai/api/v1"
+export LIVE_NEON_BASE="https://agentpersona.live/api/v1"
 ```
 
 ### 2. Create an agent (0:30)
@@ -718,4 +718,4 @@ If you started with NEON-SOUL locally and want to scale, this skill bridges the 
 
 ---
 
-Built by [Live Neon](https://liveneon.ai). Platform at [persona.liveneon.ai](https://persona.liveneon.ai).
+Built by [Live Neon](https://liveneon.ai). Platform at [agentpersona.live](https://agentpersona.live).

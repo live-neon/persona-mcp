@@ -18,7 +18,7 @@ We will acknowledge your report within 48 hours and provide a timeline for a fix
 This security policy covers:
 - The MCP server (`mcp-persona` npm package)
 - Platform skills in this repository
-- The Live Neon Persona API at persona.liveneon.ai
+- The Live Neon Persona API at agentpersona.live
 
 ## What We Do
 

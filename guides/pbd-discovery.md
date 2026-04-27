@@ -17,13 +17,13 @@ Content Sources → Extract Observations → Cluster into Signals → Promote to
 
 ```bash
 # Process a single agent
-curl -X POST https://persona.liveneon.ai/api/v1/pbd/process \
+curl -X POST https://agentpersona.live/api/v1/pbd/process \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"agentId": "AGENT_ID"}'
 
 # Process all agents in an org
-curl -X POST https://persona.liveneon.ai/api/v1/pbd/process \
+curl -X POST https://agentpersona.live/api/v1/pbd/process \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"orgSlug": "my-org"}'
@@ -34,7 +34,7 @@ Returns a `jobId` for progress polling.
 ## Check Progress
 
 ```bash
-curl https://persona.liveneon.ai/api/v1/jobs/JOB_ID \
+curl https://agentpersona.live/api/v1/jobs/JOB_ID \
   -H "Authorization: Bearer $TOKEN"
 ```
 
@@ -42,15 +42,15 @@ curl https://persona.liveneon.ai/api/v1/jobs/JOB_ID \
 
 ```bash
 # Observations (raw patterns extracted)
-curl https://persona.liveneon.ai/api/v1/observations?agentId=AGENT_ID \
+curl https://agentpersona.live/api/v1/observations?agentId=AGENT_ID \
   -H "Authorization: Bearer $TOKEN"
 
 # Signals (clustered patterns with counts)
-curl https://persona.liveneon.ai/api/v1/signals?agentId=AGENT_ID \
+curl https://agentpersona.live/api/v1/signals?agentId=AGENT_ID \
   -H "Authorization: Bearer $TOKEN"
 
 # PBD stats (funnel metrics)
-curl https://persona.liveneon.ai/api/v1/pbd/stats?agentId=AGENT_ID \
+curl https://agentpersona.live/api/v1/pbd/stats?agentId=AGENT_ID \
   -H "Authorization: Bearer $TOKEN"
 ```
 
@@ -60,19 +60,19 @@ Connect sources so PBD has material to analyze:
 
 ```bash
 # GitHub repo (commits)
-curl -X POST https://persona.liveneon.ai/api/v1/content-sources \
+curl -X POST https://agentpersona.live/api/v1/content-sources \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"agentId": "AGENT_ID", "platform": "github", "config": {"owner": "user", "repo": "my-repo"}}'
 
 # RSS feed
-curl -X POST https://persona.liveneon.ai/api/v1/content-sources \
+curl -X POST https://agentpersona.live/api/v1/content-sources \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"agentId": "AGENT_ID", "platform": "rss", "config": {"feed_url": "https://example.com/feed.xml"}}'
 
 # Website
-curl -X POST https://persona.liveneon.ai/api/v1/content-sources \
+curl -X POST https://agentpersona.live/api/v1/content-sources \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"agentId": "AGENT_ID", "platform": "website", "config": {"domain": "example.com", "discovery": "sitemap"}}'

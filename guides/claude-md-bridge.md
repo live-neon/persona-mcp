@@ -14,13 +14,13 @@ You started with 4 rules. 30 days later, you have 47 beliefs backed by evidence.
 
 ```bash
 # Dry run — preview what will be extracted
-curl -X POST https://persona.liveneon.ai/api/v1/agents/AGENT_ID/import-claude-md \
+curl -X POST https://agentpersona.live/api/v1/agents/AGENT_ID/import-claude-md \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"content": "YOUR CLAUDE.MD CONTENT HERE", "dryRun": true}'
 
 # Import for real
-curl -X POST https://persona.liveneon.ai/api/v1/agents/AGENT_ID/import-claude-md \
+curl -X POST https://agentpersona.live/api/v1/agents/AGENT_ID/import-claude-md \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"content": "YOUR CLAUDE.MD CONTENT HERE"}'
@@ -34,7 +34,7 @@ The LLM parser:
 ## Export
 
 ```bash
-curl -X POST https://persona.liveneon.ai/api/v1/agents/AGENT_ID/dynamic-prompt \
+curl -X POST https://agentpersona.live/api/v1/agents/AGENT_ID/dynamic-prompt \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"format": "claude_md"}'

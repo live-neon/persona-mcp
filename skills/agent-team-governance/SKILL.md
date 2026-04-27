@@ -4,7 +4,7 @@ version: 1.0.0
 description: Govern identity across AI agent teams — cascading beliefs, consensus detection, and organizational alignment
 author: Live Neon
 license: MIT
-homepage: https://persona.liveneon.ai
+homepage: https://agentpersona.live
 user-invocable: true
 emoji: "\U0001F465"
 tags: [governance, teams, consensus, alignment, cascading, multi-agent, organization, groups, live-neon]
@@ -44,7 +44,7 @@ The cascading model means:
 Register and get your token in one call — no signup form, no email required:
 
 ```bash
-curl -s -X POST https://persona.liveneon.ai/api/register \
+curl -s -X POST https://agentpersona.live/api/register \
   -H "Content-Type: application/json" \
   -d '{"org_name": "My Org"}' | jq .
 ```
@@ -61,7 +61,7 @@ Response:
 Set your token:
 ```bash
 export LIVE_NEON_TOKEN="ln_your_token_here"
-export LIVE_NEON_BASE="https://persona.liveneon.ai/api/v1"
+export LIVE_NEON_BASE="https://agentpersona.live/api/v1"
 ```
 
 Optional: add email for account recovery later:
@@ -104,7 +104,7 @@ Create an account and get your API token. No email required — add one later fo
 
 **API call:**
 ```bash
-curl -s -X POST "https://persona.liveneon.ai/api/register" \
+curl -s -X POST "https://agentpersona.live/api/register" \
   -H "Content-Type: application/json" \
   -d '{"org_name": "My Org"}'
 ```
@@ -419,7 +419,7 @@ The skill uses environment variables. No local config file needed.
 ```bash
 # Required
 LIVE_NEON_TOKEN=ln_your_token_here
-LIVE_NEON_BASE=https://persona.liveneon.ai/api/v1
+LIVE_NEON_BASE=https://agentpersona.live/api/v1
 
 # Optional — set default agent
 LIVE_NEON_AGENT=agent-slug-or-uuid
@@ -571,4 +571,4 @@ curl -s "$LIVE_NEON_BASE/organizations/YOUR_ORG/summary" \
 
 ---
 
-Built by [Live Neon](https://liveneon.ai). Platform at [persona.liveneon.ai](https://persona.liveneon.ai).
+Built by [Live Neon](https://liveneon.ai). Platform at [agentpersona.live](https://agentpersona.live).

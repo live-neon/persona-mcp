@@ -1,6 +1,6 @@
 # mcp-persona
 
-MCP server for [Persona](https://persona.liveneon.ai) -- AI agent identity platform with self-learning personality.
+MCP server for [Persona](https://agentpersona.live) -- AI agent identity platform with self-learning personality.
 
 Gives any MCP-compatible agent (Claude Desktop, Claude Code, Cursor, Windsurf) direct access to manage its identity, run pattern-based discovery, and evolve its beliefs from real behavior.
 
@@ -29,7 +29,7 @@ claude mcp add persona -- npx -y mcp-persona
 ## Get an API key
 
 ```bash
-curl -X POST https://persona.liveneon.ai/api/v1/register
+curl -X POST https://agentpersona.live/api/v1/register
 ```
 
 Zero fields required. Returns your `ln_` API key immediately.
@@ -61,7 +61,7 @@ Zero fields required. Returns your `ln_` API key immediately.
 | Name | Required | Description |
 |------|----------|-------------|
 | `PERSONA_API_KEY` | Yes | API key (`ln_` prefix) from registration |
-| `PERSONA_BASE_URL` | No | API base URL (default: `https://persona.liveneon.ai/api/v1`) |
+| `PERSONA_BASE_URL` | No | API base URL (default: `https://agentpersona.live/api/v1`) |
 
 ## Development
 
@@ -74,7 +74,7 @@ npm run inspect    # Opens MCP Inspector
 
 ## Links
 
-- Website: https://persona.liveneon.ai
-- API docs: https://persona.liveneon.ai/llms.txt
-- OpenAPI: https://persona.liveneon.ai/openapi.json
+- Website: https://agentpersona.live
+- API docs: https://agentpersona.live/llms.txt
+- OpenAPI: https://agentpersona.live/openapi.json
 - GitHub: https://github.com/live-neon/persona-mcp

@@ -5,9 +5,9 @@
 
 MCP server, skills, and tools for managing structured, evolving AI agent identities. Define beliefs and responsibilities, discover behavioral patterns from content, and ship consistent system prompts to any LLM.
 
-**Platform:** [persona.liveneon.ai](https://persona.liveneon.ai)
-**API Docs:** [persona.liveneon.ai/docs/api](https://persona.liveneon.ai/docs/api)
-**Compare:** [persona.liveneon.ai/compare](https://persona.liveneon.ai/compare)
+**Platform:** [agentpersona.live](https://agentpersona.live)
+**API Docs:** [agentpersona.live/docs/api](https://agentpersona.live/docs/api)
+**Compare:** [agentpersona.live/compare](https://agentpersona.live/compare)
 
 ![Dashboard](assets/screenshots/dashboard-full.jpeg)
 
@@ -27,15 +27,15 @@ claude mcp add persona -- npx -y mcp-persona
 
 ```bash
 # Register (no signup, no fields required)
-curl -X POST https://persona.liveneon.ai/api/v1/register
+curl -X POST https://agentpersona.live/api/v1/register
 
 # Create an agent
-curl -X POST https://persona.liveneon.ai/api/v1/agents \
+curl -X POST https://agentpersona.live/api/v1/agents \
   -H "Authorization: Bearer ln_your_key" \
   -d '{"name": "My Agent"}'
 
 # Import your CLAUDE.md
-curl -X POST https://persona.liveneon.ai/api/v1/agents/AGENT_ID/import-claude-md \
+curl -X POST https://agentpersona.live/api/v1/agents/AGENT_ID/import-claude-md \
   -H "Authorization: Bearer ln_your_key" \
   -d '{"content": "# My rules\n- Always write tests first\n- Keep it simple"}'
 ```
@@ -167,10 +167,10 @@ Source: [`mcp-server/`](mcp-server/)
 ## Related
 
 - **[Live Neon Skills](https://github.com/live-neon/skills)** — portable SKILL.md files for any LLM (no API key needed)
-- **[Platform](https://persona.liveneon.ai)** — web dashboard with analytics, admin panel, agent management
-- **[API Reference](https://persona.liveneon.ai/docs/api)** — full REST API documentation
-- **[Analyze](https://persona.liveneon.ai/analyze)** — free identity file analyzer (no signup)
-- **[Compare](https://persona.liveneon.ai/compare)** — side-by-side comparisons with 20+ alternatives
+- **[Platform](https://agentpersona.live)** — web dashboard with analytics, admin panel, agent management
+- **[API Reference](https://agentpersona.live/docs/api)** — full REST API documentation
+- **[Analyze](https://agentpersona.live/analyze)** — free identity file analyzer (no signup)
+- **[Compare](https://agentpersona.live/compare)** — side-by-side comparisons with 20+ alternatives
 
 ---
 

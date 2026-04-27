@@ -18,7 +18,7 @@
       "environmentVariables": [
         {
           "name": "PERSONA_API_KEY",
-          "description": "Optional. Use register tool to get one, or get from persona.liveneon.ai",
+          "description": "Optional. Use register tool to get one, or get from agentpersona.live",
           "isRequired": false,
           "isSecret": true
         }

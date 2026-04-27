@@ -5,7 +5,7 @@ Get an API key and create your first agent in 60 seconds.
 ## 1. Register (no fields required)
 
 ```bash
-curl -X POST https://persona.liveneon.ai/api/v1/register
+curl -X POST https://agentpersona.live/api/v1/register
 ```
 
 Response:
@@ -23,7 +23,7 @@ Save your token — it's shown once.
 ```bash
 export TOKEN="ln_your_token_here"
 
-curl -X POST https://persona.liveneon.ai/api/v1/agents \
+curl -X POST https://agentpersona.live/api/v1/agents \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"name": "My First Agent"}'
@@ -34,7 +34,7 @@ curl -X POST https://persona.liveneon.ai/api/v1/agents \
 ```bash
 AGENT_ID="your-agent-id"
 
-curl -X POST https://persona.liveneon.ai/api/v1/beliefs \
+curl -X POST https://agentpersona.live/api/v1/beliefs \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -47,7 +47,7 @@ curl -X POST https://persona.liveneon.ai/api/v1/beliefs \
 ## 4. Add Responsibilities
 
 ```bash
-curl -X POST https://persona.liveneon.ai/api/v1/responsibilities \
+curl -X POST https://agentpersona.live/api/v1/responsibilities \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -60,14 +60,14 @@ curl -X POST https://persona.liveneon.ai/api/v1/responsibilities \
 ## 5. Get the System Prompt
 
 ```bash
-curl https://persona.liveneon.ai/api/v1/agents/$AGENT_ID \
+curl https://agentpersona.live/api/v1/agents/$AGENT_ID \
   -H "Authorization: Bearer $TOKEN" | jq '.system_prompt'
 ```
 
 ## 6. Import a CLAUDE.md
 
 ```bash
-curl -X POST https://persona.liveneon.ai/api/v1/agents/$AGENT_ID/import-claude-md \
+curl -X POST https://agentpersona.live/api/v1/agents/$AGENT_ID/import-claude-md \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"content": "# My CLAUDE.md\n\n## Rules\n- Always write tests first\n- Keep functions under 50 lines\n- Never use any type"}'
@@ -75,7 +75,7 @@ curl -X POST https://persona.liveneon.ai/api/v1/agents/$AGENT_ID/import-claude-m
 
 ## Next Steps
 
-- [Full API Reference](https://persona.liveneon.ai/docs/api)
+- [Full API Reference](https://agentpersona.live/docs/api)
 - [MCP Server](../README.md) — 44 tools for Claude Code, Cursor, etc.
 - [Python Client](../python-client/) — Python example
 - [Node.js Client](../node-client/) — Node.js example

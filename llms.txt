@@ -2,11 +2,11 @@
 
 > AI agent identity platform. Define, observe, and evolve structured identities for AI agents — beliefs, responsibilities, and system prompts that stay consistent across any LLM or framework.
 
-Base URL: https://persona.liveneon.ai/api/v1 (also works without /v1 — both /api/v1/ and /api/ are identical)
-Docs: https://persona.liveneon.ai/docs/api
-OpenAPI: https://persona.liveneon.ai/openapi.json
-Agent Card: https://persona.liveneon.ai/.well-known/agent-card.json
-Comparisons: https://persona.liveneon.ai/compare — side-by-side comparisons with 20+ alternatives including GitAgent, CrewAI, OpenAI Frontier, LangSmith, Karpathy CLAUDE.md, and more
+Base URL: https://agentpersona.live/api/v1 (also works without /v1 — both /api/v1/ and /api/ are identical)
+Docs: https://agentpersona.live/docs/api
+OpenAPI: https://agentpersona.live/openapi.json
+Agent Card: https://agentpersona.live/.well-known/agent-card.json
+Comparisons: https://agentpersona.live/compare — side-by-side comparisons with 20+ alternatives including GitAgent, CrewAI, OpenAI Frontier, LangSmith, Karpathy CLAUDE.md, and more
 
 ## MCP Server (Preferred for AI Agents)
 
@@ -33,17 +33,17 @@ Organization Resolution: All endpoints accept orgId (UUID) or orgSlug (e.g., "my
 Public Identity Analyzer: POST /api/public/analyze — paste any agent identity file (CLAUDE.md, SOUL.md, .cursorrules, agents.yaml, system prompts) and get structured analysis with beliefs, responsibilities, gaps, and token efficiency. No auth, no signup. Rate limited: 10 req/min per IP.
 
 Framework-specific pages:
-- https://persona.liveneon.ai/analyze/claude-md — Claude Code
-- https://persona.liveneon.ai/analyze/cursor-rules — Cursor
-- https://persona.liveneon.ai/analyze/agents-md — AGENTS.md (cross-platform)
-- https://persona.liveneon.ai/analyze/copilot-instructions — GitHub Copilot
-- https://persona.liveneon.ai/analyze/crewai — CrewAI
-- https://persona.liveneon.ai/analyze/windsurf-rules — Windsurf
-- https://persona.liveneon.ai/analyze/system-prompt — Any system prompt
+- https://agentpersona.live/analyze/claude-md — Claude Code
+- https://agentpersona.live/analyze/cursor-rules — Cursor
+- https://agentpersona.live/analyze/agents-md — AGENTS.md (cross-platform)
+- https://agentpersona.live/analyze/copilot-instructions — GitHub Copilot
+- https://agentpersona.live/analyze/crewai — CrewAI
+- https://agentpersona.live/analyze/windsurf-rules — Windsurf
+- https://agentpersona.live/analyze/system-prompt — Any system prompt
 
 CLAUDE.md Generation: POST /api/v1/agents/{id}/dynamic-prompt with format=claude_md — generates a natural CLAUDE.md from agent identity. Supports template enhancement (pass existing file), context-aware selection, and feedback integration.
 
-Comparison Pages: https://persona.liveneon.ai/compare — 23 side-by-side comparison pages covering direct competitors (GitAgent, PersonaNexus, SoulClaw, Solitaire), enterprise platforms (OpenAI Frontier, LangSmith Fleet), agent frameworks (CrewAI, AutoGen), prompt management (Humanloop, Langfuse, Vellum), observability (Arize, Braintrust), governance (Openlayer), standards (Oracle Agent Spec, Soul Spec), CLAUDE.md ecosystem (Karpathy, Anthropic plugin, cursorrules.org), and category justification (vs static CLAUDE.md, vs DIY, vs no platform). Each page includes feature comparison tables, migration guides, and FAQs with structured data markup.
+Comparison Pages: https://agentpersona.live/compare — 23 side-by-side comparison pages covering direct competitors (GitAgent, PersonaNexus, SoulClaw, Solitaire), enterprise platforms (OpenAI Frontier, LangSmith Fleet), agent frameworks (CrewAI, AutoGen), prompt management (Humanloop, Langfuse, Vellum), observability (Arize, Braintrust), governance (Openlayer), standards (Oracle Agent Spec, Soul Spec), CLAUDE.md ecosystem (Karpathy, Anthropic plugin, cursorrules.org), and category justification (vs static CLAUDE.md, vs DIY, vs no platform). Each page includes feature comparison tables, migration guides, and FAQs with structured data markup.
 
 ## Important Notes
 
