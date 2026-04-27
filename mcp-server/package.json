@@ -4,7 +4,7 @@
   "description": "MCP server for Persona — AI agent identity platform with self-learning personality",
   "main": "build/index.js",
   "type": "module",
-  "mcpName": "io.github.geeks-accelerator/persona",
+  "mcpName": "io.github.live-neon/persona",
   "bin": {
     "mcp-persona": "build/index.js"
   },
@@ -31,7 +31,7 @@
   "homepage": "https://persona.liveneon.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/geeks-accelerator/live-neon-agent-identity.git",
+    "url": "https://github.com/live-neon/persona-mcp.git",
     "directory": "mcp-server"
   },
   "dependencies": {

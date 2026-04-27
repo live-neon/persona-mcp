@@ -77,4 +77,4 @@ npm run inspect    # Opens MCP Inspector
 - Website: https://persona.liveneon.ai
 - API docs: https://persona.liveneon.ai/llms.txt
 - OpenAPI: https://persona.liveneon.ai/openapi.json
-- GitHub: https://github.com/geeks-accelerator/live-neon-agent-identity
+- GitHub: https://github.com/live-neon/persona-mcp

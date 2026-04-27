@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.geeks-accelerator/persona",
+  "name": "io.github.live-neon/persona",
   "description": "AI agent identity platform with self-learning personality via pattern-based discovery",
   "repository": {
-    "url": "https://github.com/geeks-accelerator/live-neon-agent-identity",
+    "url": "https://github.com/live-neon/persona-mcp",
     "source": "github"
   },
   "version": "1.0.0",
